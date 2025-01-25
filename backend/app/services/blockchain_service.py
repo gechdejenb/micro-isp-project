@@ -1,16 +1,18 @@
-# backend/app/services/icp_service.py
 from ic.client import Client
-from ic.identity import InternetIdentity
+from ic.identity import Identity
 from ic.agent import Agent
+from ic.canister import Canister
 
 # Initialize ICP client
-identity = InternetIdentity()
+identity = Identity()
 client = Client()
 agent = Agent(identity, client)
 
 # Replace with your canister ID
-canister_id = "your_canister_id"
-bandwidth_canister = agent.get_canister(canister_id)
+canister_id = "bkyz2-fmaaa-aaaaa-qaaaq-cai"
+
+# Create the canister instance
+bandwidth_canister = Canister(agent, canister_id)
 
 def allocate_bandwidth(user: str, amount: int):
     bandwidth_canister.allocateBandwidth(user, amount)

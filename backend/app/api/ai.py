@@ -1,9 +1,9 @@
 from fastapi import APIRouter
-from app.services.ai_service import analyze_network_logs  # Absolute import
+from app.services.ai_service import analyze_network_logs
 
 router = APIRouter()
 
-@router.get("/predict")
-async def predict():
-    result = analyze_network_logs("Sample network logs")
-    return {"prediction": result}
+@router.post("/analyze-network")
+async def analyze_network(logs: str):
+    result = analyze_network_logs(logs)
+    return {"analysis": result}
