@@ -1,12 +1,20 @@
-import pandas as pd
-from sklearn.ensemble import RandomForestRegressor
+# backend/app/services/openai_service.py
+import os
+from openai import OpenAI
+from dotenv import load_dotenv
 
-class NetworkOptimizer:
-    def __init__(self):
-        self.model = RandomForestRegressor()
+load_dotenv()
 
-    def predict_peak_usage(self, historical_data):
-        df = pd.DataFrame(historical_data)
-        features = df[['time_of_day', 'day_of_week', 'active_users']]
-        predictions = self.model.predict(features)
-        return predictions
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+def analyze_network_logs(logs: str) -> str:
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[
+            {"role": "system", "content": "Analyze this network log and predict peak usage times."},
+            {"role": "user", "content": logs}
+        ],
+        temperature=0.7,
+        max_tokens=256
+    )
+    return response.choices[0].message.content

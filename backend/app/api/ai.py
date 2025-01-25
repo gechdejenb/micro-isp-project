@@ -1,11 +1,9 @@
-from app.services.blockchain_service import BlockchainService
+from fastapi import APIRouter
+from app.services.ai_service import analyze_network_logs  # Absolute import
 
-blockchain = BlockchainService()
+router = APIRouter()
 
-@router.post("/predict-peak-usage")
-async def predict_peak_usage(data: dict):
-    predictions = optimizer.predict_peak_usage(data)
-    # Allocate bandwidth based on predictions
-    for user, amount in predictions.items():
-        blockchain.allocate_bandwidth(user, amount)
-    return {"message": "Bandwidth allocated successfully"}
+@router.get("/predict")
+async def predict():
+    result = analyze_network_logs("Sample network logs")
+    return {"prediction": result}

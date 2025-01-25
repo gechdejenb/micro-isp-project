@@ -1,13 +1,30 @@
-from web3 import Web3
+# backend/app/services/icp_service.py
+from ic.client import Client
+from ic.identity import InternetIdentity
+from ic.agent import Agent
 
-class BlockchainService:
-    def __init__(self):
-        self.web3 = Web3(Web3.HTTPProvider('http://localhost:8545'))
-        self.contract = self.web3.eth.contract(
-            address='0xContractAddress',
-            abi='[...]'  # ABI of the deployed contract
-        )
+# Initialize ICP client
+identity = InternetIdentity()
+client = Client()
+agent = Agent(identity, client)
 
-    def allocate_bandwidth(self, user, amount):
-        tx = self.contract.functions.allocateBandwidth(user, amount).transact()
-        return tx.hex()
+# Replace with your canister ID
+canister_id = "your_canister_id"
+bandwidth_canister = agent.get_canister(canister_id)
+
+def allocate_bandwidth(user: str, amount: int):
+    bandwidth_canister.allocateBandwidth(user, amount)
+
+def log_network_data(bandwidth: int, latency: int, packet_loss: float):
+    network_data = {
+        "bandwidth": bandwidth,
+        "latency": latency,
+        "packetLoss": packet_loss
+    }
+    bandwidth_canister.logNetworkData(network_data)
+
+def get_bandwidth(user: str) -> int:
+    return bandwidth_canister.getBandwidth(user)
+
+def get_network_logs() -> list:
+    return bandwidth_canister.getNetworkLogs()
