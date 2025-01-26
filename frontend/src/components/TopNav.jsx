@@ -7,11 +7,11 @@ const TopNav = () => {
         <button className="p-1 hover:bg-gray-100 rounded">
           <Menu size={20} className="text-gray-500" />
         </button>
-        <div className="flex items-center gap-6 text-gray-600">
+        {/* <div className="flex items-center gap-6 text-gray-600">
           <button className="hover:text-gray-900">Dashboard</button>
           <button className="hover:text-gray-900">Users</button>
           <button className="hover:text-gray-900">Settings</button>
-        </div>
+        </div> */}
       </div>
       <div className="flex items-center gap-3">
         <button className="p-1 hover:bg-gray-100 rounded">

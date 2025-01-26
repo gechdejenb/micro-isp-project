@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import {
   ResponsiveContainer,
   LineChart,
@@ -10,15 +12,36 @@ import {
 import { Clock } from "lucide-react";
 
 const NetworkHistory = () => {
-  // Dummy data simulating logged network data
-  const loggedData = [
-    { bandwidth: 50, latency: 15, packet_loss: 0.5, timestamp: "12:00" },
-    { bandwidth: 60, latency: 20, packet_loss: 1.0, timestamp: "13:00" },
-    { bandwidth: 75, latency: 18, packet_loss: 0.8, timestamp: "14:00" },
-    { bandwidth: 65, latency: 25, packet_loss: 1.2, timestamp: "15:00" },
-    { bandwidth: 80, latency: 22, packet_loss: 1.5, timestamp: "16:00" },
-    { bandwidth: 70, latency: 19, packet_loss: 0.9, timestamp: "17:00" },
-  ];
+  const [loggedData, setLoggedData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchLoggedData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/logged-data');
+        if (Array.isArray(response.data)) {
+          setLoggedData(response.data);
+        } else {
+          throw new Error("API response is not an array");
+        }
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLoggedData();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  // Calculate average values
+  const avgBandwidth = (loggedData.reduce((acc, curr) => acc + curr.bandwidth, 0) / loggedData.length).toFixed(1);
+  const avgLatency = (loggedData.reduce((acc, curr) => acc + curr.latency, 0) / loggedData.length).toFixed(1);
+  const avgPacketLoss = (loggedData.reduce((acc, curr) => acc + curr.packet_loss, 0) / loggedData.length).toFixed(2);
 
   return (
     <div className="bg-white rounded-xl p-6 shadow-sm">
@@ -79,17 +102,17 @@ const NetworkHistory = () => {
       <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t">
         <div>
           <div className="text-sm text-gray-500">Avg. Bandwidth</div>
-          <div className="text-lg font-medium">66.7%</div>
+          <div className="text-lg font-medium">{avgBandwidth}%</div>
           <div className="text-sm text-green-500">+12.5%</div>
         </div>
         <div>
           <div className="text-sm text-gray-500">Avg. Latency</div>
-          <div className="text-lg font-medium">19.8ms</div>
+          <div className="text-lg font-medium">{avgLatency}ms</div>
           <div className="text-sm text-red-500">+3.2ms</div>
         </div>
         <div>
           <div className="text-sm text-gray-500">Avg. Packet Loss</div>
-          <div className="text-lg font-medium">0.98%</div>
+          <div className="text-lg font-medium">{avgPacketLoss}%</div>
           <div className="text-sm text-yellow-500">±0.3%</div>
         </div>
       </div>

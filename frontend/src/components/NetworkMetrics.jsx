@@ -1,12 +1,36 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Activity, Wifi, Zap } from "lucide-react";
 
 const NetworkMetrics = () => {
-  // Dummy data simulating real-time metrics
-  const metrics = {
-    bandwidth_usage: 75,
-    latency: 20,
-    packet_loss: 1.5,
-  };
+  const [metrics, setMetrics] = useState({
+    bandwidth_usage: 0,
+    latency: 0,
+    packet_loss: 0,
+  });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchMetrics = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/network-metrics');
+        setMetrics(response.data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMetrics();
+
+    const interval = setInterval(fetchMetrics, 5000); // Fetch metrics every 5 seconds
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className="grid grid-cols-3 gap-6">
