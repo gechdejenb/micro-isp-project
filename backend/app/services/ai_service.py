@@ -12,8 +12,8 @@ logger = logging.getLogger(__name__)
 
 # Initialize the OpenAI client
 client = OpenAI(
-    api_key="2b6a7a40be6e4e58a6e18d8a3db54b54",  # Replace with your actual API key
-    base_url="https://api.aimlapi.com/v1"  # Custom API endpoint
+    api_key="2b6a7a40be6e4e58a6e18d8a3db54b54", 
+    base_url="https://api.aimlapi.com/v1"  
 )
 
 def analyze_network_logs(logs: dict) -> str:

@@ -69,7 +69,7 @@ def allocate_bandwidth(net: Mininet, user: str, amount: int) -> None:
         node.cmd(f'tc qdisc add dev {iface} root tbf rate {amount}mbit burst 32kbit latency 400ms')
         info(f"Allocated {amount}Mbps to {user}\n")
     except Exception as e:
-        info(f"Bandwidth allocation error: {str(e)}\n")
+        info(f"Bandwidth allocation error for {user}: {str(e)}\n")
 
 def encode_bandwidth_data(bandwidth: int) -> bytes:
     """
@@ -91,14 +91,16 @@ def encode_bandwidth_data(bandwidth: int) -> bytes:
 
 
 async def send_to_ai_service(bandwidth: int) -> str:
-    """Send bandwidth data to the AI service for analysis."""
+    """Send bandwidth data to the AI service for analysis and log it to the backend."""
     try:
+        # Prepare payload for AI analysis
         payload = {
             "bandwidth": bandwidth,
             "latency": 20,  # Example latency value
             "packetLoss": 0.1  # Example packet loss value
         }
 
+        # Send data to AI service for analysis
         response = requests.post(
             "http://localhost:8000/api/analyze-network",
             json=payload,  # Send the payload as JSON
@@ -106,10 +108,21 @@ async def send_to_ai_service(bandwidth: int) -> str:
             timeout=5
         )
         response.raise_for_status()  # Raise an exception for HTTP errors
+
+        # Log the network data to the backend
+        log_response = requests.post(
+            "http://localhost:8000/api/log-network-ai-data",
+            json=payload,  # Send the same payload to log
+            headers={"Content-Type": "application/json"},
+            timeout=5
+        )
+        log_response.raise_for_status()  
+
         return response.json().get("analysis", "")
     except requests.RequestException as e:
-        info(f"AI Service Error: {str(e)}\n")
+        info(f"AI Service or Logging Error: {str(e)}\n")
         return ""
+
 async def log_to_dfx_canister(bandwidth: int) -> None:
     """Log bandwidth data to the DFX canister."""
     try:
@@ -143,8 +156,8 @@ async def simulate_bandwidth_peaks(net: Mininet) -> None:
     server = net.get('server1')
     server.cmd('iperf -s &')
     
-    # Define critical services
-    critical_services = ['education', 'health', 'public_service']
+    # Define critical services (use the same names as in the topology)
+    critical_services = ['edu', 'health', 'public']  # Updated to match host names
     
     for bw in range(1, 11):
         info(f"\n=== Testing {bw}Mbps ===\n")
@@ -157,7 +170,6 @@ async def simulate_bandwidth_peaks(net: Mininet) -> None:
         if bw >= 5:  # Simulate peak time (e.g., after 5 Mbps)
             for service in critical_services:
                 allocate_bandwidth(net, service, bw * 2)  # Double bandwidth for critical services
-                info(f"Allocated {bw * 2}Mbps to {service} (critical service)\n")
         
         # AI Analysis
         analysis = await send_to_ai_service(bw)
