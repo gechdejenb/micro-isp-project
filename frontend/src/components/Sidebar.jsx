@@ -29,13 +29,13 @@ const Sidebar = () => {
           <div className="flex items-center gap-2 text-blue-500 bg-blue-500/10 px-3 py-2 rounded">
             <Home size={18} />
             <span className="text-sm font-medium">Dashboard</span>
-            <span className="ml-auto text-xs bg-blue-500 text-white px-2 py-0.5 rounded">
+            {/* <span className="ml-auto text-xs bg-blue-500 text-white px-2 py-0.5 rounded">
               NEW
-            </span>
+            </span> */}
           </div>
         </div>
 
-        <div className="mb-6">
+        {/* <div className="mb-6">
           <div className="text-xs font-semibold text-gray-500 mb-2">THEME</div>
           <div className="space-y-1">
             <div className="flex items-center gap-2 px-3 py-2 hover:bg-gray-800 rounded cursor-pointer">
@@ -107,7 +107,7 @@ const Sidebar = () => {
             <Star size={18} />
             <span className="text-sm font-medium">Try CoreUI PRO</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
