@@ -9,7 +9,7 @@ const Dashboard = () => {
     <div className="flex min-h-screen bg-[#ebedef]">
       <Sidebar />
       <div className="flex-1">
-        <TopNav />
+        {/* <TopNav /> */}
         <div className="p-6">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm mb-6">
