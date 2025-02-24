@@ -14,7 +14,7 @@ const NetworkMetrics = () => {
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/network-metrics');
+        const response = await axios.get('https://micro-b2hcjcskg-gechdejenbs-projects.vercel.app/api/network-metrics');
         setMetrics(response.data);
       } catch (error) {
         setError(error);

@@ -14,7 +14,7 @@ const AIInsights = () => {
   useEffect(() => {
     const fetchAIInsights = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/ai-insights');
+        const response = await axios.get('https://micro-b2hcjcskg-gechdejenbs-projects.vercel.app/api/ai-insights');
         console.log('peak times ', response.data);
         setInsights({
           recommendations: [response.data.insights], // Map "insights" to "recommendations"
@@ -32,7 +32,7 @@ const AIInsights = () => {
 
   // Connect to SSE for real-time network data
   useEffect(() => {
-    const eventSource = new EventSource('http://localhost:8000/api/stream-network-data');
+    const eventSource = new EventSource('https://micro-b2hcjcskg-gechdejenbs-projects.vercel.app/api/stream-network-data');
     console.log('eventSource ', eventSource);
     eventSource.onmessage = (event) => {
       const newData = JSON.parse(event.data);

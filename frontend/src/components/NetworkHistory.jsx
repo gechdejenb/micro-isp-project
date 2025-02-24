@@ -19,7 +19,7 @@ const NetworkHistory = () => {
   useEffect(() => {
     const fetchLoggedData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/logged-data');
+        const response = await axios.get('https://micro-b2hcjcskg-gechdejenbs-projects.vercel.app/api/logged-data');
         if (Array.isArray(response.data)) {
           setLoggedData(response.data);
         } else {

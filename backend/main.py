@@ -22,8 +22,8 @@ logger = logging.getLogger(__name__)
 
 # Define allowed origins (you can specify '*' to allow all origins, but it's not recommended for production)
 origins = [
-    "http://localhost:3000",  # React app running on localhost
-    # Add other origins as needed
+    "https://frontend-e54sjs4jv-gechdejenbs-projects.vercel.app", "frontend-gechdejenb-gechdejenbs-projects.vercel.app" 
+    ,"frontend-r1xd6p6t6-gechdejenbs-projects.vercel.app"
 ]
 
 # Add CORS middleware to your FastAPI app
