@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 # Define allowed origins (you can specify '*' to allow all origins, but it's not recommended for production)
 origins = [
-    "https://frontend-e54sjs4jv-gechdejenbs-projects.vercel.app", "frontend-gechdejenb-gechdejenbs-projects.vercel.app" 
+    "http://bd3sg-teaaa-aaaaa-qaaba-cai.localhost:4943", "frontend-gechdejenb-gechdejenbs-projects.vercel.app" 
     ,"frontend-r1xd6p6t6-gechdejenbs-projects.vercel.app"
 ]
 
