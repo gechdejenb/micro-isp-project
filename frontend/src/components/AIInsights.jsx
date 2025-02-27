@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Brain, Clock } from "lucide-react";
 
 const AIInsights = () => {
@@ -14,8 +14,10 @@ const AIInsights = () => {
   useEffect(() => {
     const fetchAIInsights = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/ai-insights');
-        console.log('peak times ', response.data);
+        const response = await axios.get(
+          "https://micro-f9mug5qe6-gechdejenbs-projects.vercel.app/api/ai-insights"
+        );
+        console.log("peak times ", response.data);
         setInsights({
           recommendations: [response.data.insights], // Map "insights" to "recommendations"
           predicted_peak_times: [], // Add an empty array for predicted_peak_times
@@ -32,13 +34,18 @@ const AIInsights = () => {
 
   // Connect to SSE for real-time network data
   useEffect(() => {
-    const eventSource = new EventSource('http://localhost:8000/api/stream-network-data');
-    console.log('eventSource ', eventSource);
+    const eventSource = new EventSource(
+      "https://micro-f9mug5qe6-gechdejenbs-projects.vercel.app/api/stream-network-data"
+    );
+    console.log("eventSource ", eventSource);
     eventSource.onmessage = (event) => {
       const newData = JSON.parse(event.data);
       setInsights((prev) => ({
         ...prev,
-        recommendations: [...prev.recommendations, `New recommendation based on ${newData.bandwidth}Mbps bandwidth.`],
+        recommendations: [
+          ...prev.recommendations,
+          `New recommendation based on ${newData.bandwidth}Mbps bandwidth.`,
+        ],
       }));
     };
 
@@ -66,7 +73,9 @@ const AIInsights = () => {
           {insights.recommendations?.map((rec, index) => (
             <li key={index} className="flex items-start gap-3">
               <div className="w-6 h-6 rounded-full bg-purple-50 flex items-center justify-center flex-shrink-0">
-                <span className="text-sm text-purple-500 font-medium">{index + 1}</span>
+                <span className="text-sm text-purple-500 font-medium">
+                  {index + 1}
+                </span>
               </div>
               <p className="text-sm text-gray-600">{rec}</p>
             </li>

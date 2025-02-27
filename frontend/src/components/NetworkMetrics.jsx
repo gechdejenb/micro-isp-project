@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Activity, Wifi, Zap } from "lucide-react";
 
 const NetworkMetrics = () => {
@@ -14,7 +14,9 @@ const NetworkMetrics = () => {
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/network-metrics');
+        const response = await axios.get(
+          "https://micro-f9mug5qe6-gechdejenbs-projects.vercel.app/api/network-metrics"
+        );
         setMetrics(response.data);
       } catch (error) {
         setError(error);
