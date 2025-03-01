@@ -6,17 +6,17 @@
 
 This project implements a modern approach to ISP management by combining:
 - 📊 Network simulation and monitoring
-- 🤖 AI-driven bandwidth optimization
-- ⛓️ Blockchain-based bandwidth allocation
+- 🤖 AI-driven bandwidth optimization with OpenAI GPT-4
+- ⛓️ Internet Computer Protocol (ICP) for decentralized backend
 - 📈 Real-time analytics dashboard
 
 ## 📁 Project Structure
 
 ```
 micro-isp-project/
-├── 🖥️ backend/               # FastAPI backend server
-├── ⛓️ blockchain/            # Smart contracts and blockchain integration
-├── 🎨 frontend/             # React-based dashboard
+├── 🧠 ai-services/          # AI integration with OpenAI GPT-4
+├── ⛓️ icp-backend/          # Internet Computer Protocol canisters
+├── 🎨 frontend/             # React & JavaScript dashboard
 └── 🌐 isp-simulator/        # Network simulation environment
 ```
 
@@ -28,24 +28,25 @@ micro-isp-project/
 - 🖧 Uses Mininet for network emulation
 - 🤖 Provides AI-driven bandwidth optimization suggestions
 
-### ⛓️ Blockchain Integration
+### ⛓️ Internet Computer Protocol Backend
+- 🌐 Decentralized cloud computing platform
 - 📝 Smart contracts for bandwidth allocation
 - 🔍 Transparent bandwidth management
-- 📊 Decentralized bandwidth tracking
-- 💻 Written in Solidity with Web3.js integration
+- 📊 Secure and scalable data storage
+- 💻 Developed with Motoko or Rust
 
 ### 🎨 Frontend Dashboard
 - 📊 Real-time network metrics visualization
 - 🗺️ Network topology viewer
 - 🤖 AI insights display
 - 🎛️ Bandwidth allocation management
-- ⚛️ Built with React and Vite
+- ⚛️ Built with React and JavaScript
 
-### 🖥️ Backend API
-- ⚡ FastAPI-based REST API
-- 🤖 AI service integration
-- ⛓️ Blockchain service integration
-- 📊 Network metrics processing
+### 🧠 AI Services
+- 🤖 OpenAI GPT-4 integration
+- 📊 Predictive bandwidth analytics
+- 🔧 Optimization algorithms
+- 📈 Usage pattern analysis
 
 ## 🚀 Getting Started
 
@@ -53,7 +54,8 @@ micro-isp-project/
 - 🐍 Python 3.12+
 - 📦 Node.js
 - 🌐 Mininet
-- ⛓️ Ethereum development environment (e.g., Truffle)
+- ⛓️ DFINITY SDK (dfx) for Internet Computer development
+- 🔑 OpenAI API access
 
 ### ⚙️ Installation
 
@@ -70,11 +72,11 @@ source myenv/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Install and deploy blockchain contracts:
+3. Set up the ICP backend:
 ```bash
-cd blockchain
-npm install
-truffle migrate
+cd icp-backend
+dfx start --background
+dfx deploy
 ```
 
 4. Set up the frontend:
@@ -83,11 +85,13 @@ cd frontend
 npm install
 ```
 
-5. Start the backend server:
+5. Configure AI services:
 ```bash
-cd backend
+cd ai-services
+python -m venv myenv
+source myenv/bin/activate
 pip install -r requirements.txt
-uvicorn main:app --reload
+# Configure your OpenAI API key in .env file
 ```
 
 ## 🎮 Usage
@@ -98,19 +102,25 @@ cd isp-simulator
 sudo python network_simulator.py
 ```
 
-2. Run the frontend development server:
+2. Start the local ICP replica (if not already running):
+```bash
+cd icp-backend
+dfx start
+```
+
+3. Run the frontend development server:
 ```bash
 cd frontend
 npm run dev
 ```
 
-3. Monitor the network through the dashboard at `http://localhost:5173` 🌐
+4. Monitor the network through the dashboard at `http://localhost:5173` 🌐
 
 ## ✨ Features
 
 - 📊 Real-time network monitoring
-- 🤖 AI-powered bandwidth optimization
-- ⛓️ Blockchain-based bandwidth allocation
+- 🤖 GPT-4 powered bandwidth optimization
+- ⛓️ Decentralized backend on Internet Computer
 - 🗺️ Interactive network topology visualization
 - 📈 Bandwidth usage analytics
 - 📝 Smart contract integration
@@ -130,31 +140,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-<div align="center">
+<!-- <div align="center"> -->
 
 ### 🌟 Built with Innovation & Technology 🌟
 
-</div>
-````
-micro-isp-project/
-├── backend/
-│   ├── app/
-│   │   ├── api/             # Contains all the API endpoint definitions for the FastAPI backend.
-│   │   ├── core/            # Contains core application configurations, settings, and utilities.
-│   │   ├── models/          # Defines data models and database schemas using an ORM (like SQLAlchemy).
-│   │   └── services/        # Contains business logic, including AI services and network simulation functionalities.
-│   ├── tests/               # Contains unit and integration tests for the backend application.
-│   ├── alembic/             # Holds migration scripts and configurations for database schema changes.
-│   └── docker/              # Contains Docker-related files for building the backend application container.
-├── blockchain/
-│   ├── contracts/           # Contains all smart contracts written in Solidity for the Micro ISP DAO.
-│   ├── scripts/             # Scripts for deploying and interacting with smart contracts.
-│   └── test/                # Contains test cases for the smart contracts using a testing framework like Mocha or Chai.
-├── frontend/
-│   ├── src/                 # Source code for the React frontend application.
-│   │   ├── components/      # Reusable UI components of the application (e.g., buttons, forms, modals).
-│   │   ├── contexts/        # Context API for state management across the React app.
-│   │   ├── hooks/           # Custom React hooks for shared logic or functionality.
-│   │   └── services/        # Services for handling API calls and interactions with the backend and blockchain.
-│   └── tests/               # Contains unit and integration tests for the frontend components.
-└── docker-compose.yml       # Docker Compose file for orchestrating the application's multiple services (backend, frontend, database, etc.).
+<!-- </div> -->
