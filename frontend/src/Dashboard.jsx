@@ -3,6 +3,7 @@ import TopNav from "./components/TopNav";
 import NetworkMetrics from "./components/NetworkMetrics";
 import NetworkHistory from "./components/NetworkHistory";
 import AIInsights from "./components/AIInsights";
+import NetworkTopology from "./components/NetworkTopology";
 
 const Dashboard = () => {
   return (
@@ -35,7 +36,10 @@ const Dashboard = () => {
             <AIInsights />
           </div>
 
-          
+          <div className="mb-6">
+            <NetworkTopology />
+          </div>
+
         </div>
       </div>
     </div>

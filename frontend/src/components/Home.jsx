@@ -4,33 +4,33 @@ import { ArrowRight, Globe, Shield, Sun, Server, Users } from "lucide-react";
 function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-2/3 mb-8 md:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                PublicConnect: AI + Blockchain Network Optimizer
-              </h1>
-              <p className="text-xl mb-6">
-                Empowering schools, healthcare facilities, and government
-                institutions with resilient, efficient, and sustainable internet
-                access.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-white text-blue-600 px-6 py-3 rounded-md font-medium flex items-center hover:bg-blue-50 transition duration-300">
-                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                </button>
-                <button className="border border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-blue-600 transition duration-300">
-                  Learn More
-                </button>
+    {  /* Hero Section */}
+        <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="flex flex-col md:flex-row items-center">
+          <div className="md:w-2/3 mb-8 md:mb-0">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              PublicConnect: AI + Blockchain Network Optimizer
+            </h1>
+            <p className="text-xl mb-6">
+              Empowering schools, healthcare facilities, and government
+              institutions with resilient, efficient, and sustainable internet
+              access.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="/dashboard" className="bg-white text-blue-600 px-6 py-3 rounded-md font-medium flex items-center hover:bg-blue-50 transition duration-300">
+            Get Started <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+              {/* <button className="border border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-blue-600 transition duration-300">
+            Learn More
+              </button> */}
               </div>
             </div>
             <div className="md:w-1/3">
               <img
-                src="/api/placeholder/500/300"
+                src="https://cdni.iconscout.com/illustration/premium/thumb/network-connectivity-illustration-download-in-svg-png-gif-file-formats--share-internet-networking-connection-nallow-set-03-pack-design-shapes-illustrations-7141015.png?f=webp"
                 alt="Network Connectivity Visualization"
-                className="rounded-lg shadow-xl"
+                className=""
               />
             </div>
           </div>
@@ -86,7 +86,7 @@ function Home() {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
               <img
-                src="/api/placeholder/600/400"
+                src="https://cdni.iconscout.com/illustration/premium/thumb/man-doing-online-meeting-illustration-download-in-svg-png-gif-file-formats--video-conference-discussion-nallow-pack-people-illustrations-6983271.png"
                 alt="PublicConnect Solution"
                 className="rounded-lg shadow-xl"
               />
@@ -324,14 +324,14 @@ function Home() {
           <h2 className="text-3xl font-bold text-center mb-12">Our Team</h2>
           <div className="flex flex-wrap justify-center gap-8">
             {[
-              { name: "Millicent Adzepa Oprang", role: "Product Manager" },
-              { name: "Getaw Dejen", role: "Developer" },
-              { name: "El-Praise Ayo", role: "Developer" },
+              { name: "Millicent Adzepa Oprang", role: "Product Manager", src:"/m.jpg" },
+              { name: "Getaw Dejen", role: "Developer" , src:"g.jpg"},
+              { name: "El-Praise Ayo", role: "Developer" , src:"e.jpeg"},
             ].map((member, index) => (
               <div key={index} className="text-center">
                 <div className="w-40 h-40 bg-gray-200 rounded-full overflow-hidden mx-auto mb-4">
                   <img
-                    src={`/api/placeholder/160/160`}
+                    src={member.src}
                     alt={member.name}
                     className="w-full h-full object-cover"
                   />
@@ -345,7 +345,7 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
+      {/* <section className="py-16 bg-blue-600 text-white">
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <h2 className="text-3xl font-bold mb-6">Join the Revolution</h2>
           <p className="text-lg mb-8">
@@ -361,7 +361,7 @@ function Home() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12">
