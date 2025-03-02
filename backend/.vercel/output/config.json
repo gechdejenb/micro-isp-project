@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "routes": [
+    {
+      "src": "^/(.*)$",
+      "dest": "api/index.py"
+    }
+  ],
+  "crons": []
+}
