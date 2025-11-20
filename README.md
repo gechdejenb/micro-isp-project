@@ -1,63 +1,63 @@
-# 🌐 Micro ISP Project
+# Micro ISP Project
 
-> 🚀 A comprehensive solution for managing and optimizing Internet Service Provider operations using AI, blockchain technology, and network simulation.
+> A comprehensive solution for managing and optimizing Internet Service Provider operations using AI, blockchain technology, and network simulation.
 
-## 🎯 Overview
+## Overview
 
 This project implements a modern approach to ISP management by combining:
-- 📊 Network simulation and monitoring
-- 🤖 AI-driven bandwidth optimization with OpenAI GPT-4
-- ⛓️ Internet Computer Protocol (ICP) for decentralized backend
-- 📈 Real-time analytics dashboard
+-  Network simulation and monitoring
+-  AI-driven bandwidth optimization with OpenAI GPT-4
+-  Internet Computer Protocol (ICP) for decentralized backend
+-  Real-time analytics dashboard
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 micro-isp-project/
-├── 🧠 ai-services/          # AI integration with OpenAI GPT-4
-├── ⛓️ icp-backend/          # Internet Computer Protocol canisters
-├── 🎨 frontend/             # React & JavaScript dashboard
-└── 🌐 isp-simulator/        # Network simulation environment
+├──  ai-services/          # AI integration with OpenAI GPT-4
+├──  icp-backend/          # Internet Computer Protocol canisters
+├──  frontend/             # React & JavaScript dashboard
+└──  isp-simulator/        # Network simulation environment
 ```
 
-## 🔧 Components
+##  Components
 
-### 🌐 ISP Simulator
-- 🔄 Simulates network topology and bandwidth allocation
-- 📡 Implements real-time network monitoring
-- 🖧 Uses Mininet for network emulation
-- 🤖 Provides AI-driven bandwidth optimization suggestions
+### ISP Simulator
+-  Simulates network topology and bandwidth allocation
+-  Implements real-time network monitoring
+-  Uses Mininet for network emulation
+-  Provides AI-driven bandwidth optimization suggestions
 
-### ⛓️ Internet Computer Protocol Backend
-- 🌐 Decentralized cloud computing platform
-- 📝 Smart contracts for bandwidth allocation
-- 🔍 Transparent bandwidth management
-- 📊 Secure and scalable data storage
-- 💻 Developed with Motoko or Rust
+###  Internet Computer Protocol Backend
+-  Decentralized cloud computing platform
+-  Smart contracts for bandwidth allocation
+-  Transparent bandwidth management
+-  Secure and scalable data storage
+-  Developed with Motoko or Rust
 
-### 🎨 Frontend Dashboard
-- 📊 Real-time network metrics visualization
-- 🗺️ Network topology viewer
-- 🤖 AI insights display
-- 🎛️ Bandwidth allocation management
-- ⚛️ Built with React and JavaScript
+###  Frontend Dashboard
+-  Real-time network metrics visualization
+-  Network topology viewer
+-  AI insights display
+-  Bandwidth allocation management
+-  Built with React and JavaScript
 
-### 🧠 AI Services
-- 🤖 OpenAI GPT-4 integration
-- 📊 Predictive bandwidth analytics
-- 🔧 Optimization algorithms
-- 📈 Usage pattern analysis
+###  AI Services
+-  OpenAI GPT-4 integration
+-  Predictive bandwidth analytics
+-  Optimization algorithms
+-  Usage pattern analysis
 
-## 🚀 Getting Started
+## Getting Started
 
-### 📋 Prerequisites
-- 🐍 Python 3.12+
-- 📦 Node.js
-- 🌐 Mininet
-- ⛓️ DFINITY SDK (dfx) for Internet Computer development
-- 🔑 OpenAI API access
+###  Prerequisites
+-  Python 3.12+
+-  Node.js
+-  Mininet
+-  DFINITY SDK (dfx) for Internet Computer development
+-  OpenAI API access
 
-### ⚙️ Installation
+###  Installation
 
 1. Clone the repository:
 ```bash
@@ -114,19 +114,19 @@ cd frontend
 npm run dev
 ```
 
-4. Monitor the network through the dashboard at `http://localhost:5173` 🌐
+4. Monitor the network through the dashboard at `http://localhost:5173` 
 
-## ✨ Features
+##  Features
 
-- 📊 Real-time network monitoring
-- 🤖 GPT-4 powered bandwidth optimization
-- ⛓️ Decentralized backend on Internet Computer
-- 🗺️ Interactive network topology visualization
-- 📈 Bandwidth usage analytics
-- 📝 Smart contract integration
-- 🔄 Automated network management
+-  Real-time network monitoring
+-  OpenAI-powered bandwidth optimization
+-  Decentralized backend on Internet Computer
+-  Interactive network topology visualization
+-  Bandwidth usage analytics
+-  Smart contract integration
+-  Automated network management
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -134,7 +134,7 @@ npm run dev
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details
 
@@ -142,6 +142,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 <!-- <div align="center"> -->
 
-### 🌟 Built with Innovation & Technology 🌟
+###  Built with Innovation & Technology 
 
 <!-- </div> -->
